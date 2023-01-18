@@ -1,40 +1,385 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)https://jsfiddle.net/hornoxnl/sjmwj4fq/2100/show -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>COLORHELPER</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="//code.jquery.com/jquery-1.9.1.js"
     
-    
-    <meta http-equiv="edit-Type" edit="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>COLORHELPER - JSFiddle</title>
+  ></script>
+    <script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
 
-      <meta name="robots" content="index, follow">
-      <meta name="googlebot" content="index, follow">
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
 
-      <script type="text/javascript">
-        var height
-        var force_height = null
-        var slug = "sjmwj4fq"
-        var show_src = "//fiddle.jshell.net/hornoxnl/sjmwj4fq/2100/show/light/"
-        var resize_element_counter = 0
-        var shell_edit_url = "/hornoxnl/sjmwj4fq/2100/light/"
-      </script>
 
-      <script src="./COLORHELPER - JSFiddle_files/embed.js.download"></script>
-      <link rel="stylesheet" media="screen" href="./COLORHELPER - JSFiddle_files/embed-light.css">
-      <link rel="icon" href="https://jsfiddle.net/img/favicon.png">
-  </head>
-  <body id="sylvester-standalone">
-    <a class="toEditor" href="https://jsfiddle.net/hornoxnl/sjmwj4fq/2100/" target="_blank">
-      <svg width="34" height="40">
-      <use xlink:href="//jsfiddle.net/sprite.svg#logo"></use>
-    </svg>Edit in JSFiddle
-    </a>
+  <style id="compiled-css" type="text/css">
+    body {
+  font-family: helvetica;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  vertical-align: middle;
+  background-image: url("https://wallpapers.com/images/featured/colorful-tlzydzdb2ogq2b70.webp");
+}
 
-    <div id="result">
-      
-    <iframe src="./COLORHELPER - JSFiddle_files/saved_resource.html" frameborder="0" sandbox="allow-forms allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-downloads allow-modals allow-popups" allow="midi; geolocation; microphone; camera; display-capture; encrypted-media;"></iframe></div>
+header {
+  text-align: center;
+}
 
-    
+
+h1{
+  font-size: 48px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: yellow;
+}
+
+#yoloLetter{
+  -webkit-text-fill-color: yellow;
+}
+
+.cheemsLetter{
+  font-weight: bold; 
+  vertical-align: -3px;
+  color: yellow;
+  font-size: 22px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+section {
+  height: 100%;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5em;
+  width: 100%;
+}
+
+table {
+  padding: 20px;
+  width: 100%;
+}
+
+tr, th, td {
+  height: 40px;
+  border: 0.25px solid;
+  text-align: center;
+  outline: none;
+  border-color: black;
+  box-shadow: 0 0 10px yellow;
+}
+
+.formSection {
+  display: block;
+  height: 10em;
+  width: 100%;
+}
+ 
+#getFormValues{
+  transform: skewY(-11deg);
+}
+
+#getFormValues, #copyXMLButton, #copySCSSButton  {
+  margin: 10px;
+  height: 40px;
+  width: 100px;
+  border-radius: 4px;
+  background-color: magenta;
+  font-size: 30px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: yellow;
+  outline: none;
+  border-color: purple;
+  box-shadow: 0 0 10px yellow;
+}
+
+#errorMessage{
+  height: 30px;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 20px;
+  -webkit-text-fill-color: orange;
+  -webkit-text-stroke-width: 0.25px;
+  -webkit-text-stroke-color: black;
+  margin-bottom: 3em;
+}
+
+#getFormValues:hover, #copyXMLButton:hover, #copySCSSButton:hover {
+  background-color: yellow;
+    -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: magenta;
+}
+
+#getFormValues:active, #copyXMLButton:active, #copySCSSButton:active {
+  background-color: yellow;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: magenta;
+  transform: translateY(1px);
+ 
+}
+
+#getFormValues:active{
+    transform: skewY(-11deg);
+}
+
+#manualRed, #manualGreen, #manualBlue,#manualCyan,#manualMagenta,#manualYellow,#manualKey {
+  margin: 10px;
+  height: 20px;
+  width: 50px;
+  border-radius: 4px;
+  outline: none;
+    border-color: purple;
+    box-shadow: 0 0 10px magenta;
+}
+
+#nameText {
+  transform: skewY(-11deg);
+  border-radius: 5px;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: -100px;
+  background-color: magenta;
+  font-size: 30px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: yellow;
+  padding: 3px;
+  box-shadow: 0 0 10px yellow;
+}
+
+#name {
+  margin: 10px;
+  margin-bottom: 30px;
+  height: 20px;
+  width: 200px;
+  border-radius: 4px;
+  outline: none;
+  border-color: purple;
+  box-shadow: 0 0 10px magenta;
+}
+
+#manualBlue{
+  margin-right: 10px;
+}
+
+#outputXml, #outputScss{
+  background-color: yellow;
+  background-image: radial-gradient(white, white, yellow);
+}
+
+.buttonSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5em;
+  width: 100%;
+}
+
+.outputSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10em;
+  width: 100%;
   
+}
 
-</body></html>
+.errorMessageSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+  width: 100%;
+}
+
+.output{
+ width: 100%;
+}
+
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+</head>
+<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap" rel="stylesheet">
+<audio id="achterlijk" src="https://www.tinyenlau.nl/sounds/achterlijk.mp3"></audio>
+<audio id="lostezitten" src="https://www.tinyenlau.nl/sounds/lostezitten.mp3"></audio>
+<audio id="daarnetniet" src="https://www.tinyenlau.nl/sounds/daarnetniet.mp3"></audio>
+<audio id="jedenktdatjeallesbeterweet" src="https://www.tinyenlau.nl/sounds/jedenktdatjeallesbeterweet.mp3"></audio>
+<header>
+  <h1 id="titleText">
+    COLOR<span id='yoloLetter'>H</span>ELPER
+  </h1>
+</header>
+<main>
+  <section class="formSection">
+    <form name=cmyk class="nameForm">
+      <nobr>
+        <span id='nameText'>NAME:</span><input id='name' type=text name=NAME value="name">
+      </nobr>
+    </form>
+    <form name=cmyk class="fillInForm">
+      <input onclick="getValues()" id="getFormValues" type=button name=btn value="GET">
+      <nobr>
+        <span class='cheemsLetter'>R:</span><input id='manualRed' type=text name=R value="0">
+        <span class='cheemsLetter'>G:</span><input id='manualGreen' type=text name=G value="0">
+        <span class='cheemsLetter'>B:</span><input id='manualBlue' type=text name=B value="0">
+      </nobr>
+      <nobr>
+        <span class='cheemsLetter'>C:</span><input id='manualCyan' type=text name=C value="0">
+        <span class='cheemsLetter'>M:</span><input id='manualMagenta' type=text name=M value="0">
+        <span class='cheemsLetter'>Y:</span><input id='manualYellow' type=text name=Y value="0">
+        <span class='cheemsLetter'>K:</span><input id='manualKey' type=text name=K value="0">
+      </nobr>
+    </form>
+  </section>
+  <section class='errorMessageSection'>
+    <div>
+      <h5 id='errorMessage' />
+    </div>
+  </section>
+  <section class="outputSection">
+    <div class="output">
+      <table id="resultTable">
+        <tr>
+          <th> <span class='cheemsLetter'>XML</span></th>
+          <th> <span class='cheemsLetter'>SCSS</span></th>
+        </tr>
+        <tr>
+          <td id="outputXml" />
+          <td id="outputScss" />
+        </tr>
+        <tr>
+          <td id="copyXml">
+            <input onclick="copyXML()" id="copyXMLButton" type=button name=btn value="COPY XML TO CLIPBOARD">
+          </td>
+          <td id="copyScss">
+            <input onclick="copySCSS()" id="copySCSSButton" type=button name=btn value="COPY SCSS TO CLIPBOARD">
+          </td>
+        </tr>
+      </table>
+    </div>
+  </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</main>
+
+
+    <script type="text/javascript">//<![CDATA[
+
+
+const foutmeldingen = [
+  "jedenktdatjeallesbeterweet",
+  "lostezitten",
+  "achterlijk",
+  "daarnetniet"
+];
+
+const alertStrings = {
+  'numericCmyk': 'CMYK values must be in the range 0 to 100.',
+  'numericRgb': 'RGB values must be in the range 0 to 255.',
+  'alphaNumericCmyk': 'Please enter numeric CMYK values!',
+  'alphaNumericRgb': 'Please enter numeric RGB values!',
+}
+
+const processFields = (r, g, b, c, m, y, k) => {
+  clearErrorMessage();
+  let red = removeSpacesConvertToInt(r);
+  let green = removeSpacesConvertToInt(g);
+  let blue = removeSpacesConvertToInt(b);
+  let cyan = removeSpacesConvertToFloat(c);
+  let magenta = removeSpacesConvertToFloat(m);
+  let yellow = removeSpacesConvertToFloat(y);
+  let key = removeSpacesConvertToFloat(k);
+
+  checkRGBValidity(red, green, blue);
+  checkCMYKValidity(cyan, magenta, yellow, key);
+  let name = document.getElementById("name").value;
+
+  document.getElementById("outputXml").innerText = `<color name="${name}" cmyk="rgb-icc(${red},${green},${blue},#CMYK,${cyan}%,${magenta}%,${yellow}%,${key}%)" rgb="rgb(${red},${green},${blue})"/>`;
+  document.getElementById("outputScss").innerText = `$${name}:rgb(${red},${green},${blue});`;
+}
+
+const checkRGBValidity = (r, g, b) => {
+  if (r == null || g == null || b == null || isNaN(r) || isNaN(g) || isNaN(b)) {
+			errorHandling('alphaNumericRgb');
+  }
+  if (r < 0 || g < 0 || b < 0 || r > 255 || g > 255 || b > 255) {
+  		errorHandling('numericRgb');
+  }
+}
+
+const checkCMYKValidity = (c, m, y, k) => {
+  if (c == null || m == null || y == null || k == null || isNaN(c) || isNaN(m) || isNaN(y) || isNaN(k)) {
+			errorHandling('alphaNumericCmyk');
+  }
+  if (c < 0 || m < 0 || y < 0 || k < 0 || c > 100 || m > 100 || y > 100 || k > 100) {
+			errorHandling('numericCmyk');				
+  }
+}
+
+const errorHandling = (errorType) => {
+  const random = Math.floor(Math.random() * foutmeldingen.length);
+  document.getElementById(foutmeldingen[random]).play();
+  alerthandeler(errorType);
+}
+
+const copyXML = () => navigator.clipboard.writeText(document.getElementById("outputXml").innerText);
+
+const copySCSS = () => navigator.clipboard.writeText(document.getElementById("outputScss").innerText);
+
+const getValues = () => processFields(document.getElementById("manualRed").value, document.getElementById("manualGreen").value, document.getElementById("manualBlue").value, document.getElementById("manualCyan").value, document.getElementById("manualMagenta").value, document.getElementById("manualYellow").value, document.getElementById("manualKey").value);
+
+const removeSpacesConvertToInt = (rgbValue) => parseInt(('' + rgbValue).replace(/\s/g, ''), 10);
+
+const removeSpacesConvertToFloat = (cmykValue) => parseFloat(('' + cmykValue).replace(/\s/g, ''), 10);
+
+const alerthandeler = (errortype) => document.getElementById("errorMessage").innerText = `Oopsieppoopsie: ${alertStrings[errortype]}`;
+
+const clearErrorMessage = () => document.getElementById("errorMessage").innerText = '';
+
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "sjmwj4fq"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+
+</body>
+</html>
