@@ -7,7 +7,6 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
 
   <script
@@ -44,19 +43,6 @@ h1{
   -webkit-text-stroke-color: yellow;
 }
 
-#yoloLetter{
-  -webkit-text-fill-color: yellow;
-}
-
-.cheemsLetter{
-  font-weight: bold; 
-  vertical-align: -3px;
-  color: yellow;
-  font-size: 22px;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: black;
-}
-
 main {
   height: 100%;
   width: 100%;
@@ -89,11 +75,7 @@ tr, th, td {
   box-shadow: 0 0 10px yellow;
 }
 
-.formSection {
-  display: block;
-  height: 10em;
-  width: 100%;
-}
+
  
 #getFormValues{
   transform: skewY(-11deg);
@@ -151,8 +133,8 @@ tr, th, td {
   width: 50px;
   border-radius: 4px;
   outline: none;
-    border-color: purple;
-    box-shadow: 0 0 10px magenta;
+  border-color: purple;
+  box-shadow: 0 0 10px magenta;
 }
 
 #nameText {
@@ -190,6 +172,11 @@ tr, th, td {
   background-image: radial-gradient(white, white, yellow);
 }
 
+
+#yoloLetter{
+  -webkit-text-fill-color: yellow;
+}
+
 .buttonSection {
   display: flex;
   justify-content: center;
@@ -217,6 +204,21 @@ tr, th, td {
 
 .output{
  width: 100%;
+}
+
+.cheemsLetter{
+  font-weight: bold;
+  vertical-align: -3px;
+  color: yellow;
+  font-size: 22px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+}
+
+.formSection {
+  display: block;
+  height: 10em;
+  width: 100%;
 }
 
     /* EOS */
@@ -317,7 +319,6 @@ const processFields = (r, g, b, c, m, y, k) => {
   let magenta = removeSpacesConvertToFloat(m);
   let yellow = removeSpacesConvertToFloat(y);
   let key = removeSpacesConvertToFloat(k);
-
   let name = document.getElementById("name").value;
 
   document.getElementById("outputXml").innerText = `<color name="${name}" cmyk="rgb-icc(${red},${green},${blue},#CMYK,${cyan}%,${magenta}%,${yellow}%,${key}%)" rgb="rgb(${red},${green},${blue})"/>`;
@@ -330,35 +331,29 @@ const processFields = (r, g, b, c, m, y, k) => {
 const checkRGBValidity = (r, g, b) => {
   if (r == null || g == null || b == null || isNaN(r) || isNaN(g) || isNaN(b)) {
     errorHandling('alphaNumericRgb');
-    document.getElementById("outputXml").innerText = '';
-    document.getElementById("outputScss").innerText = '';
+    clearOutputCells();
   }
   if (r < 0 || g < 0 || b < 0 || r > 255 || g > 255 || b > 255) {
     errorHandling('numericRgb');
-    document.getElementById("outputXml").innerText = '';
-    document.getElementById("outputScss").innerText = '';
+    clearOutputCells();
   }
 }
 
 const checkCMYKValidity = (c, m, y, k) => {
   if (c == null || m == null || y == null || k == null || isNaN(c) || isNaN(m) || isNaN(y) || isNaN(k)) {
     errorHandling('alphaNumericCmyk');
-    document.getElementById("outputXml").innerText = '';
-    document.getElementById("outputScss").innerText = '';
+    clearOutputCells();
   }
   if (c < 0 || m < 0 || y < 0 || k < 0 || c > 100 || m > 100 || y > 100 || k > 100) {
     errorHandling('numericCmyk');
-    document.getElementById("outputXml").innerText = '';
-    document.getElementById("outputScss").innerText = '';
+    clearOutputCells();
   }
 }
 
 const errorHandling = (errorType) => {
   const random = Math.floor(Math.random() * foutmeldingen.length);
   document.getElementById(foutmeldingen[random]).play();
-
   alerthandeler(errorType);
-
 }
 
 const copyXML = () => navigator.clipboard.writeText(document.getElementById("outputXml").innerText);
@@ -374,6 +369,11 @@ const removeSpacesConvertToFloat = (cmykValue) => parseFloat(('' + cmykValue).re
 const alerthandeler = (errortype) => document.getElementById("errorMessage").innerText = `Oopsiepoopsie: ${alertStrings[errortype]}`;
 
 const clearErrorMessage = () => document.getElementById("errorMessage").innerText = '';
+
+const clearOutputCells = () => {
+	document.getElementById("outputXml").innerText = '';
+	document.getElementById("outputScss").innerText = '';
+}
 
 
 
@@ -395,4 +395,5 @@ const clearErrorMessage = () => document.getElementById("errorMessage").innerTex
 
 </body>
 </html>
+
 
