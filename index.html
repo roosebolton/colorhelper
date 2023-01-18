@@ -317,36 +317,47 @@ const processFields = (r, g, b, c, m, y, k) => {
   let yellow = removeSpacesConvertToFloat(y);
   let key = removeSpacesConvertToFloat(k);
 
-  checkRGBValidity(red, green, blue);
-  checkCMYKValidity(cyan, magenta, yellow, key);
   let name = document.getElementById("name").value;
 
   document.getElementById("outputXml").innerText = `<color name="${name}" cmyk="rgb-icc(${red},${green},${blue},#CMYK,${cyan}%,${magenta}%,${yellow}%,${key}%)" rgb="rgb(${red},${green},${blue})"/>`;
   document.getElementById("outputScss").innerText = `$${name}:rgb(${red},${green},${blue});`;
+
+  checkRGBValidity(red, green, blue);
+  checkCMYKValidity(cyan, magenta, yellow, key);
 }
 
 const checkRGBValidity = (r, g, b) => {
   if (r == null || g == null || b == null || isNaN(r) || isNaN(g) || isNaN(b)) {
-			errorHandling('alphaNumericRgb');
+    errorHandling('alphaNumericRgb');
+    document.getElementById("outputXml").innerText = '';
+    document.getElementById("outputScss").innerText = '';
   }
   if (r < 0 || g < 0 || b < 0 || r > 255 || g > 255 || b > 255) {
-  		errorHandling('numericRgb');
+    errorHandling('numericRgb');
+    document.getElementById("outputXml").innerText = '';
+    document.getElementById("outputScss").innerText = '';
   }
 }
 
 const checkCMYKValidity = (c, m, y, k) => {
   if (c == null || m == null || y == null || k == null || isNaN(c) || isNaN(m) || isNaN(y) || isNaN(k)) {
-			errorHandling('alphaNumericCmyk');
+    errorHandling('alphaNumericCmyk');
+    document.getElementById("outputXml").innerText = '';
+    document.getElementById("outputScss").innerText = '';
   }
   if (c < 0 || m < 0 || y < 0 || k < 0 || c > 100 || m > 100 || y > 100 || k > 100) {
-			errorHandling('numericCmyk');				
+    errorHandling('numericCmyk');
+    document.getElementById("outputXml").innerText = '';
+    document.getElementById("outputScss").innerText = '';
   }
 }
 
 const errorHandling = (errorType) => {
   const random = Math.floor(Math.random() * foutmeldingen.length);
   document.getElementById(foutmeldingen[random]).play();
+
   alerthandeler(errorType);
+
 }
 
 const copyXML = () => navigator.clipboard.writeText(document.getElementById("outputXml").innerText);
@@ -359,7 +370,7 @@ const removeSpacesConvertToInt = (rgbValue) => parseInt(('' + rgbValue).replace(
 
 const removeSpacesConvertToFloat = (cmykValue) => parseFloat(('' + cmykValue).replace(/\s/g, ''), 10);
 
-const alerthandeler = (errortype) => document.getElementById("errorMessage").innerText = `Oopsieppoopsie: ${alertStrings[errortype]}`;
+const alerthandeler = (errortype) => document.getElementById("errorMessage").innerText = `Oopsiepoopsie: ${alertStrings[errortype]}`;
 
 const clearErrorMessage = () => document.getElementById("errorMessage").innerText = '';
 
@@ -383,3 +394,4 @@ const clearErrorMessage = () => document.getElementById("errorMessage").innerTex
 
 </body>
 </html>
+
